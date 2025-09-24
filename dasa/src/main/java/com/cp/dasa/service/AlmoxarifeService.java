@@ -4,27 +4,30 @@ import com.cp.dasa.dao.AlmoxarifeDAO;
 import com.cp.dasa.model.Almoxarifado;
 import com.cp.dasa.model.Almoxarife;
 import com.cp.dasa.model.Item;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class AlmoxarifeService {
-    @Autowired
-    AlmoxarifeDAO almoxarifeDAO;
+
+    private AlmoxarifeDAO dao;
+
+    public AlmoxarifeService(AlmoxarifeDAO almoxarifeDAO) {
+        this.dao = almoxarifeDAO;
+    }
 
     /// Métodos
     public List<Item> exibirAlmoxarifado(Almoxarife almoxarife, Long ID_Almoxarifado) {
         verificarAlmoxarifado(almoxarife.getID_Almoxarife(), ID_Almoxarifado);
-        return almoxarifeDAO.exibirAlmoxarifado(almoxarife);
+        return dao.exibirAlmoxarifado(almoxarife);
     }
 
 
     public Almoxarifado alterarQtdItensEstoque(Long ID_Almoxarife , Long ID_Almoxarifado, Long ID_Item, int Qtd) {
         verificarAlmoxarifado(ID_Almoxarife, ID_Almoxarifado);
         verificarQtd(Qtd);
-        return almoxarifeDAO.alterarQtdItensEstoque(ID_Almoxarifado, ID_Item, Qtd);
+        return dao.alterarQtdItensEstoque(ID_Almoxarifado, ID_Item, Qtd);
     }
 
     /// Serviços

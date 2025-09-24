@@ -11,7 +11,6 @@ import java.util.Properties;
 @Component
 public class ConnectionFactory {
     // Puxa os dados do application.properties
-
     String url = System.getenv("ORACLE_URL");
     String user = System.getenv("ORACLE_USER");
     String pass = System.getenv("ORACLE_PASSWORD");

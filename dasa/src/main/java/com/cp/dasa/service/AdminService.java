@@ -4,7 +4,6 @@ import com.cp.dasa.config.ConnectionFactory;
 import com.cp.dasa.dao.AdminDAO;
 import com.cp.dasa.model.Almoxarifado;
 import com.cp.dasa.model.Item;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
@@ -14,39 +13,42 @@ import java.util.List;
 
 @Service
 public class AdminService {
-    @Autowired
-    ConnectionFactory connectionFactory;
 
-    @Autowired
-    AdminDAO adminDAO;
+    private ConnectionFactory connectionFactory;
+
+    private AdminDAO dao;
+
+    public AdminService(AdminDAO adminDAO) {
+        this.dao = adminDAO;
+    }
 
     /// Métodos
     public List<Almoxarifado> exibirAlmoxarifados(Long ID_Almoxarifado) {
-        return adminDAO.exibirAlmoxarifados(ID_Almoxarifado);
+        return dao.exibirAlmoxarifados(ID_Almoxarifado);
     }
 
     public Almoxarifado exibirAlmoxarifado(Long ID_Admin) {
-        return adminDAO.exibirAlmoxarifado(ID_Admin);
+        return dao.exibirAlmoxarifado(ID_Admin);
     }
 
     public Item inserirItem(Long ID_Item, int Qtd, Long ID_Almoxarifado) {
         Long ID_Admin = buscarAdminPorAlmoxarifado(ID_Almoxarifado);
         verificarQtd(Qtd);
-        return adminDAO.inserirItem(ID_Item, Qtd, ID_Admin);
+        return dao.inserirItem(ID_Item, Qtd, ID_Admin);
     }
 
     public Item criarItem(Item item) {
         verificarItem(item);
-        return adminDAO.criarItem(item);
+        return dao.criarItem(item);
     }
 
     public Item removerItem(Long ID_Item, Long ID_Almoxarifado) {
         Long ID_Admin = buscarAdminPorAlmoxarifado(ID_Almoxarifado);
-        return adminDAO.removerItem(ID_Item, ID_Admin);
+        return dao.removerItem(ID_Item, ID_Admin);
     }
 
     public Item excluirItem(Item item) {
-        return adminDAO.excluirItem(item.getID_Item());
+        return dao.excluirItem(item.getID_Item());
     }
 
     /// Serviços

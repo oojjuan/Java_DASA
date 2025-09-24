@@ -4,7 +4,6 @@ import com.cp.dasa.config.ConnectionFactory;
 import com.cp.dasa.model.Almoxarifado;
 import com.cp.dasa.model.Almoxarife;
 import com.cp.dasa.model.Item;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -35,10 +34,7 @@ public class AlmoxarifeDAO {
             Connection con = connectionFactory.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
 
-            Almoxarifado almoxarifado = almoxarife.getAlmoxarifado();
-            Long ID_Almoxarifado = almoxarifado.getID_Almoxarifado();
-
-            ps.setLong(1, ID_Almoxarifado);
+            ps.setLong(1, almoxarife.getID_Almoxarifado());
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
