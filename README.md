@@ -7,5 +7,11 @@ Lynn Bueno Rosa | 551102 <br>
 
 # Explicação do Projeto
 O projeto é baseado na ideia do challenge da DASA, onde criamos um sistema que irá automatizar a entrada e saída dos itens do almoxarifado, e este projeto simula a interação dos usuários principais, que são os almoxarifes e admins, no sistema do **ConfereAí**, nossa solução desenvolvida para o challenge.<br><br>
+
 O usuário do tipo Almoxarife será responsável por remover / adicionar novos insumos ao estoque, além de poder ver os itens do almoxarifado o qual foi designado.<br><br>
+
 Já o usuário do tipo Admin será o responsável por fazer qualquer alteração no sistema do almoxarifado, como adicionar ou remover um item do almoxarifado OU do sistema inteiro, e até mesmo exibir informações dos almoxarifados.<br><br>
+
+## Etapa do Desenvolvimento
+
+Até o momento foi desenvolvido as classes Model, representando as entidades do Bando de Dados, as classes da camada DAO dos usuários, permitindo interação com o banco de dados, e também algumas regras de negócios para as requisições, além da configuração que estabelece conexão ao BD.
