@@ -3,7 +3,6 @@ package com.cp.dasa.dao;
 import com.cp.dasa.config.ConnectionFactory;
 import com.cp.dasa.model.Almoxarifado;
 import com.cp.dasa.model.Item;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -15,8 +14,11 @@ import java.util.List;
 
 @Repository
 public class AdminDAO {
-    @Autowired
-    ConnectionFactory connectionFactory;
+    private final ConnectionFactory connectionFactory;
+
+    public AdminDAO(ConnectionFactory connectionFactory) {
+        this.connectionFactory = connectionFactory;
+    }
 
     // READ - Exibe as informações do almoxarifados
     public List<Almoxarifado> exibirAlmoxarifados(Long ID_Almoxarifado) {

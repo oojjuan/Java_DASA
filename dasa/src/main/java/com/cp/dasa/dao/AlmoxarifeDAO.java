@@ -16,8 +16,11 @@ import java.util.List;
 
 @Repository
 public class AlmoxarifeDAO {
-    @Autowired
-    ConnectionFactory connectionFactory;
+    private final ConnectionFactory connectionFactory;
+
+    public AlmoxarifeDAO(ConnectionFactory connectionFactory) {
+        this.connectionFactory = connectionFactory;
+    }
 
     // READ - Exibir todos os itens do almoxarifado do almoxarife
     public List<Item> exibirAlmoxarifado(Almoxarife almoxarife) {
