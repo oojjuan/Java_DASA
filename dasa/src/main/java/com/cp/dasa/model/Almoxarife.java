@@ -7,10 +7,10 @@ public class Almoxarife {
 
     private Long ID_Almoxarife;
     private String nome;
-    private Almoxarifado almoxarifado;
+    private Long ID_Almoxarifado;
 
-    public Almoxarife(String nome, Almoxarifado almoxarifado) {
+    public Almoxarife(String nome, Long ID_Almoxarifado) {
         this.nome = nome;
-        this.almoxarifado = almoxarifado;
+        this.ID_Almoxarifado = ID_Almoxarifado;
     }
 }
